@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-06T04:26:31.595Z</updated>
+  <updated>2019-11-28T09:18:36.647Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>tensorflow的安装</title>
+    <link href="http://yoursite.com/2019/11/28/install-tensorflow/"/>
+    <id>http://yoursite.com/2019/11/28/install-tensorflow/</id>
+    <published>2019-11-28T09:12:21.000Z</published>
+    <updated>2019-11-28T09:18:36.647Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="在没有root权限的服务器上安装"><a href="#在没有root权限的服务器上安装" class="headerlink" title="在没有root权限的服务器上安装"></a>在没有root权限的服务器上安装</h2><p>服务器上似乎什么都没有，且权限很低，为了不干扰别人，需要在虚拟环境中运行。<br>流程：安装pip-&gt;通过pip安装virtualenv-&gt;虚拟环境下安装tensorflow</p><h3 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装pip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://bootstrap.pypa.io/get-pip.py</span><br><span class="line">python3 get-pip.py --user</span><br></pre></td></tr></table></figure><p>由于现在都用python3，所以不讨论2的情况，由于没有权限，所以必须加<code>--user</code></p><h3 id="用pip安装virtualenv"><a href="#用pip安装virtualenv" class="headerlink" title="用pip安装virtualenv"></a>用pip安装virtualenv</h3><p>虽然用的是服务器，但是也出现了超时错误，所以使用清华的镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple virtualenv --user</span><br></pre></td></tr></table></figure><p>同样需要加<code>--user</code>解决权限的问题<br>创建虚拟环境并安装tensorflow<br>这一部分参考了<a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1019273143120480" target="_blank" rel="noopener">廖雪峰的博客</a>，创建单独目录并切换到该目录下，没有按照博客说的不装所有的库，所以如此创建：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtualenv venv</span><br></pre></td></tr></table></figure><p>使用source进入环境</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source venv/bin/activate</span><br></pre></td></tr></table></figure><p>退出方法也很简单</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure><p>我为我的虚拟环境命名为了venv，在以虚拟环境运行时就会出现<br>(venv)</p><p>在虚拟环境中安装tensorflow1.4版本，因为目前主流都是1.几的，同样为了避免速度的问题，使用清华镜像，服务器还没装GPU，所以先下载的CPU的版本</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorflow==<span class="number">1.4</span></span><br></pre></td></tr></table></figure><p>安装完进入python3中import tensorflow，结果出现了如下的报错</p><blockquote><p>/home/<strong><em>/</em></strong>/venv/lib/python3.5/site-packages/tensorflow/python/framework/dtypes.py:469:<br>FutureWarning: Passing (type, 1) or ‘1type’ as a synonym of type is<br>deprecated; in a future version of numpy, it will be understood as<br>(type, (1,)) / ‘(1,)type’.   _np_qint8 = np.dtype([(“qint8”, np.int8,<br>1)])</p></blockquote><p>可以看到是np库也就是numpy有些没兼容，方法是降numpy的版本</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U numpy==<span class="number">1.16</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure><p>使用镜像应该会更快一点，但是这个大小也能忍了。。<br>至此降级了numpy，安装了tensorflow，再在python3中测试，没有bug</p><h2 id="在本机安装"><a href="#在本机安装" class="headerlink" title="在本机安装"></a>在本机安装</h2><p>本机已经安装了pip3，之前总是出现超时错误，所以和服务器端一样，使用镜像，并且降级numpy就可以了。</p><h2 id="在Anaconda中使用"><a href="#在Anaconda中使用" class="headerlink" title="在Anaconda中使用"></a>在Anaconda中使用</h2><p>其实并没有太高清anaconda中的python和本机的python的区别和联系，尤其在库函数上感觉非常迷。<br>但是juypter notebook的及时性还是非常时候入门上手，所以尝试</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure><p>结果出现了报错</p><blockquote><p>h5py_init_.py:26：FutureWarning: Conversion of the second argument of<br>issubdtype from <code>float</code> to <code>np.floating</code> is deprecated. In future, it<br>will be treated as <code>np.float64 == np.dtype(float).type</code>.   from ._conv<br>import register_converters as _register_converters</p></blockquote><p>解决办法就是更新这个h5py的包</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install h5py==<span class="number">2.8</span>.<span class="number">0</span>rc1</span><br></pre></td></tr></table></figure><p>然后就可以了</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;在没有root权限的服务器上安装&quot;&gt;&lt;a href=&quot;#在没有root权限的服务器上安装&quot; class=&quot;headerlink&quot; title=&quot;在没有root权限的服务器上安装&quot;&gt;&lt;/a&gt;在没有root权限的服务器上安装&lt;/h2&gt;&lt;p&gt;服务器上似乎什么都没有，且权
+      
+    
+    </summary>
+    
+    
+      <category term="tensorflow" scheme="http://yoursite.com/categories/tensorflow/"/>
+    
+    
+      <category term="install" scheme="http://yoursite.com/tags/install/"/>
+    
+      <category term="tensorflow" scheme="http://yoursite.com/tags/tensorflow/"/>
+    
+  </entry>
   
   <entry>
     <title>保研流程</title>

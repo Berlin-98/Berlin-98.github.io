@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>tensorflow的安装 | 薄 琳 | 既来之 则安之</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="install,tensorflow">
+    <meta name="description" content="在没有root权限的服务器上安装服务器上似乎什么都没有，且权限很低，为了不干扰别人，需要在虚拟环境中运行。流程：安装pip-&amp;gt;通过pip安装virtualenv-&amp;gt;虚拟环境下安装tensorflow 安装pip12wget https://bootstrap.pypa.io/get-pip.pypython3 get-pip.py --user  由于现在都用python3，所以不讨论">
+<meta name="keywords" content="install,tensorflow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tensorflow的安装">
+<meta property="og:url" content="http://yoursite.com/2019/11/28/install-tensorflow/index.html">
+<meta property="og:site_name" content="薄 琳">
+<meta property="og:description" content="在没有root权限的服务器上安装服务器上似乎什么都没有，且权限很低，为了不干扰别人，需要在虚拟环境中运行。流程：安装pip-&amp;gt;通过pip安装virtualenv-&amp;gt;虚拟环境下安装tensorflow 安装pip12wget https://bootstrap.pypa.io/get-pip.pypython3 get-pip.py --user  由于现在都用python3，所以不讨论">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-28T09:18:36.647Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tensorflow的安装">
+<meta name="twitter:description" content="在没有root权限的服务器上安装服务器上似乎什么都没有，且权限很低，为了不干扰别人，需要在虚拟环境中运行。流程：安装pip-&amp;gt;通过pip安装virtualenv-&amp;gt;虚拟环境下安装tensorflow 安装pip12wget https://bootstrap.pypa.io/get-pip.pypython3 get-pip.py --user  由于现在都用python3，所以不讨论">
+    
+        <link rel="alternate" type="application/atom+xml" title="薄 琳" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Bo Lin</h5>
+          <a href="mailto:16281092@bjtu.edu.cn" title="16281092@bjtu.edu.cn" class="mail">16281092@bjtu.edu.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Berlin-98" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">tensorflow的安装</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">tensorflow的安装</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-28T09:12:21.000Z" itemprop="datePublished" class="page-time">
+  2019-11-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/tensorflow/">tensorflow</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在没有root权限的服务器上安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">在没有root权限的服务器上安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装pip"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">安装pip</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用pip安装virtualenv"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">用pip安装virtualenv</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在本机安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">在本机安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在Anaconda中使用"><span class="post-toc-number">3.</span> <span class="post-toc-text">在Anaconda中使用</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-install-tensorflow"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">tensorflow的安装</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-28 17:12:21" datetime="2019-11-28T09:12:21.000Z"  itemprop="datePublished">2019-11-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/tensorflow/">tensorflow</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="在没有root权限的服务器上安装"><a href="#在没有root权限的服务器上安装" class="headerlink" title="在没有root权限的服务器上安装"></a>在没有root权限的服务器上安装</h2><p>服务器上似乎什么都没有，且权限很低，为了不干扰别人，需要在虚拟环境中运行。<br>流程：安装pip-&gt;通过pip安装virtualenv-&gt;虚拟环境下安装tensorflow</p>
+<h3 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装pip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://bootstrap.pypa.io/get-pip.py</span><br><span class="line">python3 get-pip.py --user</span><br></pre></td></tr></table></figure>
+
+<p>由于现在都用python3，所以不讨论2的情况，由于没有权限，所以必须加<code>--user</code></p>
+<h3 id="用pip安装virtualenv"><a href="#用pip安装virtualenv" class="headerlink" title="用pip安装virtualenv"></a>用pip安装virtualenv</h3><p>虽然用的是服务器，但是也出现了超时错误，所以使用清华的镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple virtualenv --user</span><br></pre></td></tr></table></figure>
+
+<p>同样需要加<code>--user</code>解决权限的问题<br>创建虚拟环境并安装tensorflow<br>这一部分参考了<a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1019273143120480" target="_blank" rel="noopener">廖雪峰的博客</a>，创建单独目录并切换到该目录下，没有按照博客说的不装所有的库，所以如此创建：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtualenv venv</span><br></pre></td></tr></table></figure>
+
+<p>使用source进入环境</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source venv/bin/activate</span><br></pre></td></tr></table></figure>
+
+<p>退出方法也很简单</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+
+<p>我为我的虚拟环境命名为了venv，在以虚拟环境运行时就会出现<br>(venv)</p>
+<p>在虚拟环境中安装tensorflow1.4版本，因为目前主流都是1.几的，同样为了避免速度的问题，使用清华镜像，服务器还没装GPU，所以先下载的CPU的版本</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorflow==<span class="number">1.4</span></span><br></pre></td></tr></table></figure>
+
+<p>安装完进入python3中import tensorflow，结果出现了如下的报错</p>
+<blockquote>
+<p>/home/<strong><em>/</em></strong>/venv/lib/python3.5/site-packages/tensorflow/python/framework/dtypes.py:469:<br>FutureWarning: Passing (type, 1) or ‘1type’ as a synonym of type is<br>deprecated; in a future version of numpy, it will be understood as<br>(type, (1,)) / ‘(1,)type’.   _np_qint8 = np.dtype([(“qint8”, np.int8,<br>1)])</p>
+</blockquote>
+<p>可以看到是np库也就是numpy有些没兼容，方法是降numpy的版本</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U numpy==<span class="number">1.16</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>使用镜像应该会更快一点，但是这个大小也能忍了。。<br>至此降级了numpy，安装了tensorflow，再在python3中测试，没有bug</p>
+<h2 id="在本机安装"><a href="#在本机安装" class="headerlink" title="在本机安装"></a>在本机安装</h2><p>本机已经安装了pip3，之前总是出现超时错误，所以和服务器端一样，使用镜像，并且降级numpy就可以了。</p>
+<h2 id="在Anaconda中使用"><a href="#在Anaconda中使用" class="headerlink" title="在Anaconda中使用"></a>在Anaconda中使用</h2><p>其实并没有太高清anaconda中的python和本机的python的区别和联系，尤其在库函数上感觉非常迷。<br>但是juypter notebook的及时性还是非常时候入门上手，所以尝试</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
+
+<p>结果出现了报错</p>
+<blockquote>
+<p>h5py_init_.py:26：FutureWarning: Conversion of the second argument of<br>issubdtype from <code>float</code> to <code>np.floating</code> is deprecated. In future, it<br>will be treated as <code>np.float64 == np.dtype(float).type</code>.   from ._conv<br>import register_converters as _register_converters</p>
+</blockquote>
+<p>解决办法就是更新这个h5py的包</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install h5py==<span class="number">2.8</span>.<span class="number">0</span>rc1</span><br></pre></td></tr></table></figure>
+
+<p>然后就可以了</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-11-28T09:18:36.647Z" itemprop="dateUpdated">2019-11-28 17:18:36</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Bo Lin">
+            Bo Lin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/install/">install</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tensorflow/">tensorflow</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/11/28/install-tensorflow/&title=《tensorflow的安装》 — 薄 琳&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/11/28/install-tensorflow/&title=《tensorflow的安装》 — 薄 琳&source=既来之 则安之" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/11/28/install-tensorflow/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《tensorflow的安装》 — 薄 琳&url=http://yoursite.com/2019/11/28/install-tensorflow/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/11/28/install-tensorflow/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/10/06/保研流程/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">保研流程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Bo Lin &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/11/28/install-tensorflow/&title=《tensorflow的安装》 — 薄 琳&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/11/28/install-tensorflow/&title=《tensorflow的安装》 — 薄 琳&source=既来之 则安之" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/11/28/install-tensorflow/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《tensorflow的安装》 — 薄 琳&url=http://yoursite.com/2019/11/28/install-tensorflow/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/11/28/install-tensorflow/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aO27DMBAFwNz/0k6bIpbf4yoBRI4qwxBIjorFfvj1FT+vH8/a++9+T3apHwwMjMcyXpdPcqzrlZNdkn3fvYOBgXEOIzlEEjo/bHbJa0MzBgYGxvXSeQjO32/XxMDAwJgE3OtjJR8IAwMDY62IvW6KXf8/Cco31+IYGBgPZORd9////SfzDQwMjEcxJs366xXmqWFxKgwMjK0Z7TBy0iAbNf2T82BgYBzAyEvQhNSG7HxUUCSIGBgYWzCSo0+Gmm3h2rbqfslwMTAwtmO0h7hrMJl/stEIEwMDY1PGXQE3TyKjYJqUuBgYGFsz1hpqbYvtrqsYRUWOgYGxBSO/bjUfRubpZl0GY2BgHMNIFl1L9YqoXxaxGBgY5zDa8DoJtUnRW6eJGBgYWzPaDdoSt6W2qSQGBgbG2tBxkurdNTzAwMDYiZGH1MlR1v5JUkAMDIwTGPOR5L1D0FERi4GBcQCjDX/tNbK8bbdW1mJgYJzGWLu8lSRw7YcoMBgYGAcw2rFiW/QmQTnvC37IcDEwMDZl5IVoO4BcvDARj1cxMDD2ZrzKp0378stho7IZAwNja8ZasJuUmm2TbvHOCAYGxnaMtnzNGfm1iTbgFpkjBgbGRoxJ2nfX9Yt2zICBgYHRjhjXBpn5mjcHXAwMjK0Z7fAgSRzXSG/nGxgYGJsy1g6xBsgL4KK1h4GBsTWjLR2TLZOxZZtuTkpfDAyMxzK+ATDBA/G6T4lmAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '真的要走嘛';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '感谢围观';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
